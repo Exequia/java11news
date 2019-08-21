@@ -23,4 +23,19 @@ public class StringNews implements IStringNews {
     return list;
   }
 
+  @Override
+  public String stripText(String text) {
+    return text.strip();
+  }
+
+  @Override
+  public String stripLeadingText(String text) {
+    return text.stripLeading();
+  }
+
+  @Override
+  public String stripTrailingText(String text) {
+    return text.stripTrailing();
+  }
+
 }

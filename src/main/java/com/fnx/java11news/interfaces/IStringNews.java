@@ -8,4 +8,9 @@ public interface IStringNews {
 
   public List<String> castTextToList(String text);
 
+  public String stripText(String text);
+
+  public String stripLeadingText(String text);
+
+  public String stripTrailingText(String text);
 }

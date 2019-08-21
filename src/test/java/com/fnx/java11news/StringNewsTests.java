@@ -48,4 +48,25 @@ public class StringNewsTests {
     assertNotSame(expectedResult, result);
   }
 
+  @Test
+  public void stripText_shouldReturnCleanText() {
+    String dirtyText = "  \n\t text to clean \u2005  ";
+    String expectedResult = "text to clean";
+    assertEquals(expectedResult, str.stripText(dirtyText));
+  }
+
+  @Test
+  public void stripLeadingText_shouldReturnCleanTextOnlyOnInit() {
+    String dirtyText = "  \n\t text to clean \u2005  ";
+    String expectedResult = "text to clean \u2005  ";
+    assertEquals(expectedResult, str.stripLeadingText(dirtyText));
+  }
+
+  @Test
+  public void stripTrailingText_shouldReturnCleanTextOnlyOnEnd() {
+    String dirtyText = "  \n\t text to clean \u2005  ";
+    String expectedResult = "  \n\t text to clean";
+    assertEquals(expectedResult, str.stripTrailingText(dirtyText));
+  }
+
 }

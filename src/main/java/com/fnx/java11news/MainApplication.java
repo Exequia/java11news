@@ -30,6 +30,12 @@ public class MainApplication implements CommandLineRunner {
 		// Method to cast text to colection List
 		String arrayText = "1,2,3,4";
 		System.out.println("arrayText: " + arrayText + " casted to List -> " + str.castTextToList(arrayText));
+
+		// Methods to strip text
+		String dirtyText = "  \n\t text to clean \u2005  ";
+		System.out.println("dirtyText: " + dirtyText + " stripped -> " + str.stripText(dirtyText));
+		System.out.println("dirtyText: " + dirtyText + " stripped Leading -> " + str.stripLeadingText(dirtyText));
+		System.out.println("dirtyText: " + dirtyText + " stripped Trailing-> " + str.stripTrailingText(dirtyText));
 	}
 
 }
