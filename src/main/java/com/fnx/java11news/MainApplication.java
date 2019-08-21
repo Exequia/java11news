@@ -26,6 +26,10 @@ public class MainApplication implements CommandLineRunner {
 		// Method to check if string is empty or not
 		System.out.println("next result should be true -> " + str.checkEmptyText(""));
 		System.out.println("next result should be false -> " + str.checkEmptyText(greating));
+
+		// Method to cast text to colection List
+		String arrayText = "1,2,3,4";
+		System.out.println("arrayText: " + arrayText + " casted to List -> " + str.castTextToList(arrayText));
 	}
 
 }
