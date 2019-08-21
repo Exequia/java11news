@@ -12,6 +12,8 @@ public class MainApplication implements CommandLineRunner {
 
 	@Autowired
 	private IStringNews str;
+	@Autowired
+	private LambdasNews lam;
 
 	public static void main(String[] args) {
 		SpringApplication.run(MainApplication.class, args);
@@ -36,6 +38,13 @@ public class MainApplication implements CommandLineRunner {
 		System.out.println("dirtyText: " + dirtyText + " stripped -> " + str.stripText(dirtyText));
 		System.out.println("dirtyText: " + dirtyText + " stripped Leading -> " + str.stripLeadingText(dirtyText));
 		System.out.println("dirtyText: " + dirtyText + " stripped Trailing-> " + str.stripTrailingText(dirtyText));
+
+		// Lambda filter with "var" type of value
+		System.out.println("Filter pair values -> ");
+		lam.filter("pair");
+		System.out.println("Filter odd values -> ");
+		lam.filter("odd");
+		System.out.println("Sum values in functional interface -> " + lam.operation());
 	}
 
 }
