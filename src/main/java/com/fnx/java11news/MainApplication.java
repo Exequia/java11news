@@ -1,5 +1,7 @@
 package com.fnx.java11news;
 
+import java.nio.file.StandardOpenOption;
+
 import com.fnx.java11news.interfaces.IStringNews;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -14,6 +16,8 @@ public class MainApplication implements CommandLineRunner {
 	private IStringNews str;
 	@Autowired
 	private LambdasNews lam;
+	@Autowired
+	private FilesNews files;
 
 	public static void main(String[] args) {
 		SpringApplication.run(MainApplication.class, args);
@@ -45,6 +49,12 @@ public class MainApplication implements CommandLineRunner {
 		System.out.println("Filter odd values -> ");
 		lam.filter("odd");
 		System.out.println("Sum values in functional interface -> " + lam.operation());
-	}
 
+		// Methos for files
+		String pathFile = "E://Programacion//Java//java11Tests//java11TestsJDK11.txt";
+		String path = files.createFile(pathFile);
+		System.out.println("File created in -> " + path);
+		String content = files.readFile(pathFile);
+		System.out.println("File reade, content -> " + content);
+	}
 }
