@@ -1,7 +1,6 @@
 package com.fnx.java11news;
 
-import java.nio.file.StandardOpenOption;
-
+import com.fnx.java11news.interfaces.IOptionalNews;
 import com.fnx.java11news.interfaces.IStringNews;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -18,6 +17,10 @@ public class MainApplication implements CommandLineRunner {
 	private LambdasNews lam;
 	@Autowired
 	private FilesNews files;
+	@Autowired
+	private Person person;
+	@Autowired
+	private IOptionalNews optionals;
 
 	public static void main(String[] args) {
 		SpringApplication.run(MainApplication.class, args);
@@ -56,5 +59,10 @@ public class MainApplication implements CommandLineRunner {
 		System.out.println("File created in -> " + path);
 		String content = files.readFile(pathFile);
 		System.out.println("File reade, content -> " + content);
+
+		// Method to check Optionals validations
+		Person fakePerson = null;
+		System.out.println("No person, should return true ->" + optionals.isEmpty(fakePerson));
+		System.out.println("Spring person, should return false ->" + optionals.isEmpty(person));
 	}
 }
